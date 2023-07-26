@@ -1,0 +1,72 @@
+Directory Listing:
+Write a script that lists all files and directories in a specified directory.
+
+#!/bin/bash
+echo "Enter directory path:"
+read -p "Path: " path
+file_count=0
+dir_count=0
+for file in "$path"/*; do
+    if [ -f "$file" ]; then
+        ((file_count++))
+        echo "File: $file"
+    elif [ -d "$file" ]; then
+        ((dir_count++))
+        echo "Directory: $file"
+    else
+        echo "Unknown error"
+    fi
+done
+echo "Number of files is: $file_count"
+echo "Number of directories is: $dir_count"
+
+
+Directory Size:
+Write a script that calculates the total size of all files in a specified directory.
+
+#!/bin/bash
+echo "Enter directory path:"
+read -p "Path: " path
+for file in "$path"/*; do
+    if [ -f "$file" ]; then
+        echo "File: $file"
+        size=$(stat -c %s "$file")
+        echo "Size: $size bytes"
+    elif [ -d "$file" ]; then
+        echo "Directory: $file"
+    else
+        echo "Unknown error"
+    fi
+done
+
+
+Search and Replace:
+Write a script that takes a search string and a replace string as input and performs a search and replace operation in a given file.
+
+#!/bin/bash/
+echo "enter file name"
+read -p "Filename: " file
+if [[ -f $file ]]; then
+        echo "file exists"
+        read -p "enter word you want to replace:" word
+        read -p "enter new word:" new_word
+        sed -i "s/$word/$new_word/g" "$file"
+else
+        echo "file not found"
+fi
+
+
+File Backup:
+Write a script that takes a filename as input and creates a backup of that file by adding a timestamp to its name.
+
+#!/bin/bash
+echo "enter the file name"
+read -p "Filename: " file
+if [ -f $file ]; then
+        cp $file "$file.backup.$(date)"
+        echo "file successfully backed up"
+else
+        echo "file does not exists"
+fi
+
+
