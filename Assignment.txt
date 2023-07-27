@@ -1,0 +1,59 @@
+Project1:
+Build Maven java project with integration of maven,git.
+First we have to create a maven project using java
+and then we have to check for the test cases whether if they are working or not
+check the pom.xml file thoroughly if all the dependencies are given correctly or not 
+create a new git repositary for the maven java project.
+commit and push the code to the new git repositary that we created before
+run the build and check if it is working or not.
+Goals needed to be done are validate clean compile test and package. 
+later open the jenkins and create a new maven project build and give the link of the github repositary that we created before and give poll scm as * * * * * it will trigger the changes for every one minute and provide the path of pom.xml and give the goals and build the file.
+continue the same process for every individual goal and atlast we will get the jar file after the final build and check in the workspace for the jar file.
+
+
+Project2:
+Build and Release Pipelines-Integration of Git and create pipeline with groovy code...
+For this project we use the git repositary where we pushed the code before
+and then create a jenkins pipeline and give the url of the git repositary and give the poll scm as * * * * * to trigger the changes for every one minute and use the groovy pipeline script.
+The groovy code includes the agent section specifies that the pipeline should run on a nodewhich can be either the Jenkins master node or a remote agent node or any and then it includes stages, stages are nothing but the goals we are trying to do.It consists of clean compile test and package.Build the pipeline if the build is success then the output jar file is automatically shown in the status of pipeline.
+
+
+Project3:
+Kubernetes Project: create cluster in  KopS and create service with apache tomcat and Web server using Docker compose / manifest file , expose using load balancer and scaleup and rolling updating using Kubernetes kubectl.
+For this project first we have to create an s3 bucket with a name 
+and then we have to create a hosted zone with the same name as s3 bucket using route53
+and then we have to create an iam user and attach policies of adminstrator access,vpc,iam,ec2,s3,route53 full access and create a user
+after that we have to create access key and generate secret access key and keep them aside for later usage.
+After that we have to create an ec2 instance using keypair and security groups with ssh and instance type as t2.micro.
+After that we need to install kops and change the executable permissions and move that file to /usr/local/bin/kops.
+check for the version of kops whether it is correctly installed or not.
+Do the same for kubectl as well but we have to move that file to /usr/local/bin.
+then we have to configure iam user using the access key and and secret access key and give the region.
+check for the s3 buckets after configuring your iam user.
+later expose the s3 bucket that we have created and also regions that we need to deploy and also set server size as t3.medium
+After that we need to create a cluster and generate ssh-key and check for the generated cluster whether if it is created or not using command kops get cluster and then validate the cluster that we have created ,
+Validation of cluster takes some time until the cluster gets healthy.
+After validation create a yml file to deploy the tomcat application and apply the yml file and expose the load balancer and wait for the service to get started, After that we will get an url for the loadbalancer and check the result of the tomcat deployment using that url.
+
+
+Project4:
+Docker: web application deployment using Docker Compose Deploy application container dependencies using Dockerfile as docker-compose stack.
+For this project first we have to create an ec2 instance with security groups enabled with port 8080 and launch the instance 
+after that istall docker in the ec2 instance that we created and then start service docker
+After installing docker we have to install docker-compose and then change the executable permissions and check for the version
+and then create  two docker files one is for ubuntu and the other is for tomcat.
+After that create a dockercompose.yml file and it contains both the ubuntu and tomcat deployment details.
+Configure the docker compose file and build the container and make it up and running.
+Check for the ubuntu and tomcat deployments using the public ip of the ec2 instance.
+
+
+
+
+ 
+
+
+
+  
+
+
+
